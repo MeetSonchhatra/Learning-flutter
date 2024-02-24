@@ -37,7 +37,7 @@ class _CalculatorViewState extends State<CalculatorView> {
       onPause: _onPause,
       onRestart: _onRestart,
       onStateChange: _onStatechange,
-      //onExitRequested: _onExitRequest,
+      
       
     );
   }
