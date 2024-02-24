@@ -37,7 +37,10 @@ class _CalculatorViewState extends State<CalculatorView> {
       onPause: _onPause,
       onRestart: _onRestart,
       onStateChange: _onStatechange,
-      
+      /*
+      AppLifecycleListner is usefull for tracking app state changes like when app goes in background, foreground etc.
+      */
+      // we can perform various operation when app state changes like when app is inactive or when app is paused
       
     );
   }
@@ -67,12 +70,20 @@ void dispose(){
       padding: const EdgeInsets.all(32.0),
       child:  Column(
         children: [
-          DisplayOne(hint:"Enter Second Number",controller:displayOneController),
+          DisplayOne(
+            key: const Key("displayone"),
+            hint:"Enter Second Number",controller:displayOneController
+            ),
           SizedBox(height: 30,),
-          DisplayOne(hint:"Enter Second Number",controller:displayTwoController),
+          DisplayOne(
+            key: const Key("displaytwo"),
+            hint:"Enter Second Number",controller:displayTwoController),
           
           SizedBox(height: 30,),
           Text(
+            key : Key("Result"),
+            // key mainly use for focus management and testing
+            
             z.toString(),
             style: TextStyle(
               fontSize: 50,
